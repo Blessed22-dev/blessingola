@@ -222,7 +222,8 @@ export const SECTIONS = [
       { key: "first", label: "Brand name, first word", type: "text" },
       { key: "second", label: "Brand name, purple part", type: "text" },
       { key: "ownerName", label: "Your full name", type: "text" },
-      { key: "ownerTitle", label: "Your job title", type: "text" }
+      { key: "ownerTitle", label: "Your job title", type: "text" },
+      { key: "tagline", label: "Tagline on the opening animation", type: "text" }
     ]
   },
   {

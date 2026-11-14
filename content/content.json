@@ -1,0 +1,218 @@
+{
+  "seo": {
+    "title": "Children's Book Illustrator & KDP Cover Designer | Blessed KDP-Designzz",
+    "description": "Hire a children's book illustrator for picture books and early readers. Custom illustrations, book cover design and KDP-ready formatting by Blessed KDP-Designzz.",
+    "keywords": "children's book illustrator, children's book illustration services, picture book illustrator, hire a children's book illustrator, KDP book cover design, Amazon KDP formatting, book formatting service, self-publishing illustrator",
+    "shareImage": "img/books/christmas-star-front.jpg",
+    "siteUrl": ""
+  },
+  "brand": {
+    "first": "Blessed",
+    "second": "KDP-Designzz",
+    "ownerName": "Blessed Olaoluwakiitan",
+    "ownerTitle": "Children's Book Illustrator and KDP Designer"
+  },
+  "contact": {
+    "whatsapp": "2349067759138",
+    "whatsappDisplay": "+234 906 775 9138",
+    "whatsappMessage": "Hi Blessed, I'd like a quote for my children's book.",
+    "email": "blessedolaolwakiitan@gmail.com",
+    "upwork": "https://www.upwork.com/freelancers/~0112bd2ef6958b6476",
+    "instagram": "https://www.instagram.com/kdp_designzz",
+    "threads": "https://www.threads.com/@kdp_designzz",
+    "linkedin": "https://www.linkedin.com/in/blessed-olaoluwakiitan-829721437",
+    "tiktok": ""
+  },
+  "nav": {
+    "button": "Get a quote"
+  },
+  "hero": {
+    "eyebrow": "Children's book illustrator for self-publishing authors",
+    "titleStart": "Children's book illustrations that make little readers",
+    "titleHighlight": "turn the page",
+    "text": "I illustrate picture books and early readers with warm, expressive characters kids fall in love with, then design the cover and format the interior so your book is ready for Amazon KDP.",
+    "buttonMain": "Get my free quote",
+    "buttonSecond": "See finished books",
+    "proof": [
+      { "big": "20", "small": "books in the showcase" },
+      { "big": "3-in-1", "small": "art, cover & layout" },
+      { "big": "5.0★", "small": "Fiverr rating" }
+    ],
+    "scrollHint": "Scroll to open the book"
+  },
+  "platforms": ["Amazon KDP", "Kindle", "IngramSpark", "Barnes & Noble Press", "Lulu", "Apple Books", "Google Play Books", "Kobo"],
+  "book": {
+    "front": "img/books/christmas-star-front.jpg",
+    "back": "img/books/christmas-star-back.jpg",
+    "spine": "img/books/christmas-star-spine.jpg",
+    "insideCoverLabel": "This book belongs to",
+    "insideCoverText": "a little reader with big dreams",
+    "page1Back": "With a kind heart and a brave spirit, she set out to help the star find its way home.",
+    "page2Front": "She followed the light across the snow.",
+    "page2Back": "Once upon a snowy Christmas night, a little girl found a star that had fallen from the sky.",
+    "lastPage": "…and the star began to glow."
+  },
+  "problem": {
+    "eyebrow": "Sound familiar?",
+    "title": "You wrote a beautiful story. Now it needs pictures that sell it.",
+    "text": "Children choose books with their eyes first, and parents buy with theirs. These are the problems I hear most from authors before we start.",
+    "items": [
+      { "title": "The character looks different on every page.", "text": "Kids notice. I build a character sheet first, so your hero stays the same from cover to last spread." },
+      { "title": "The art looks generic or AI-made.", "text": "Every illustration is drawn for your story, with expressions and details your young readers will spot again and again." },
+      { "title": "The cover doesn't stand out on Amazon.", "text": "Your cover is designed to read clearly at thumbnail size, where most buyers first see it." },
+      { "title": "KDP keeps rejecting your files.", "text": "Bleed, trim size, margins and spine width are set up correctly from the very first page." }
+    ]
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Everything your children's book needs, from the first sketch to the final upload",
+    "main": {
+      "tag": "Main service",
+      "title": "Children's book illustration",
+      "text": "Full-colour illustrations for picture books, bedtime stories, faith-based children's books and early readers. You get character design, page-by-page sketches for your approval, then finished, print-ready art for every spread.",
+      "points": [
+        "Character design sheet before any page is painted",
+        "Rough sketches you approve before final colour",
+        "Space planned for your text on every page",
+        "High-resolution files for print and ebook"
+      ]
+    },
+    "addons": [
+      { "tag": "Add-on", "title": "Book cover design", "text": "Front, spine and back cover built to your exact trim size and page count, with a title that reads clearly on an Amazon thumbnail." },
+      { "tag": "Add-on", "title": "KDP book formatting", "text": "Interior layout for paperback, hardcover and Kindle, with correct bleed, margins and fonts, delivered as print-ready PDF and ePub files." }
+    ],
+    "button": "Tell me about your book"
+  },
+  "work": {
+    "eyebrow": "Selected work",
+    "title": "Books that made it from idea to bookshelf",
+    "text": "Children's books, covers, workbooks and novels. Open any case study to see the full project.",
+    "button": "Start a book like these",
+    "categories": [
+      { "id": "children", "label": "Children's" },
+      { "id": "faith", "label": "Faith" },
+      { "id": "workbook", "label": "Workbooks" },
+      { "id": "nonfiction", "label": "Memoir & nonfiction" },
+      { "id": "fiction", "label": "Fiction & poetry" }
+    ],
+    "items": [
+      { "title": "The Little Girl Who Found the Christmas Star", "genre": "Children's picture book", "category": "children", "image": "img/books/christmas-star-wrap.jpg", "link": "", "linkLabel": "Start a book like this" },
+      { "title": "Soul Sneakers: Passport to Play", "genre": "Children's book", "category": "children", "image": "img/cases/soul-sneakers.jpg", "link": "https://seller.olamilekanwaliu.com/samples/soul-sneakers-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "My Seven Covenants", "genre": "Illustrated faith book", "category": "children", "image": "img/cases/my-seven-covenants.jpg", "link": "https://seller.olamilekanwaliu.com/samples/my-seven-covenants-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "Structure Creates Freedom", "genre": "Juvenile nonfiction", "category": "children", "image": "img/cases/structure-creates-freedom.jpg", "link": "https://cmsfvqcphouhwqfxfrhd.supabase.co/storage/v1/object/public/cms-images/portfolio/1794611170529_Structure_Creates_Freedom_Case_Study.pdf", "linkLabel": "View PDF" },
+      { "title": "The Cursed Codex", "genre": "Dark fantasy novel", "category": "fiction", "image": "img/books/cursed-codex-wrap.jpg", "link": "", "linkLabel": "Start a book like this" },
+      { "title": "Judge Not", "genre": "Christian nonfiction", "category": "faith", "image": "img/cases/judge-not.jpg", "link": "https://seller.olamilekanwaliu.com/samples/judge-not-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "Foundations", "genre": "Christian living", "category": "faith", "image": "img/cases/foundations.jpg", "link": "https://seller.olamilekanwaliu.com/samples/foundations-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "Gen B: Generation Blessed", "genre": "Memoir-style story", "category": "nonfiction", "image": "img/cases/gen-b-generation-blessed.jpg", "link": "https://seller.olamilekanwaliu.com/samples/gen-b-generation-blessed-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "Come Forth", "genre": "Epic fantasy fiction", "category": "fiction", "image": "img/cases/come-forth.jpg", "link": "https://seller.olamilekanwaliu.com/samples/come-forth-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "Own Your Sh!t Workbook", "genre": "Therapy workbook", "category": "workbook", "image": "img/cases/own-your-shit-workbook.jpg", "link": "https://seller.olamilekanwaliu.com/samples/own-your-shit-workbook-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "From Anxious to Confident", "genre": "Self-help workbook", "category": "workbook", "image": "img/cases/from-anxious-to-confident.jpg", "link": "https://seller.olamilekanwaliu.com/samples/from-anxious-to-confident-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "Gig Search Hacks Workbook", "genre": "Workbook", "category": "workbook", "image": "img/cases/gig-search-hacks.jpg", "link": "https://seller.olamilekanwaliu.com/samples/gig-search-hacks-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "Senior Living Made SIMPLE Workbook", "genre": "Guided workbook", "category": "workbook", "image": "img/cases/senior-living-made-simple.jpg", "link": "https://seller.olamilekanwaliu.com/samples/senior-living-made-simple-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "The Relationship Detox", "genre": "Healing workbook", "category": "workbook", "image": "img/cases/the-relationship-detox.jpg", "link": "https://seller.olamilekanwaliu.com/samples/the-relationship-detox-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "Moving to Spain With Children", "genre": "Relocation guide", "category": "nonfiction", "image": "img/cases/moving-to-spain.jpg", "link": "https://seller.olamilekanwaliu.com/samples/moving-to-spain-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "Therapy Changed My Suicidal Thoughts to Self-Love!", "genre": "Memoir", "category": "nonfiction", "image": "img/cases/therapy-changed.jpg", "link": "https://seller.olamilekanwaliu.com/samples/therapy-changed-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "From Flagged to Restored", "genre": "Nonfiction / KDP", "category": "nonfiction", "image": "img/cases/from-flagged-to-restored.jpg", "link": "https://seller.olamilekanwaliu.com/samples/from-flagged-to-restored-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "Stronger at the Core", "genre": "Leadership training", "category": "nonfiction", "image": "img/cases/stronger-at-the-core.jpg", "link": "https://seller.olamilekanwaliu.com/samples/stronger-at-the-core-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "Gotta Get It Out", "genre": "Poetry", "category": "fiction", "image": "img/cases/gotta-get-it-out.jpg", "link": "https://seller.olamilekanwaliu.com/samples/gotta-get-it-out-case-study.pdf", "linkLabel": "View PDF" },
+      { "title": "Left on Read", "genre": "Novel", "category": "fiction", "image": "img/cases/left-on-read.jpg", "link": "https://cmsfvqcphouhwqfxfrhd.supabase.co/storage/v1/object/public/cms-images/portfolio/1793801440429_Left_on_Read_Case_Study.pdf", "linkLabel": "View PDF" }
+    ]
+  },
+  "process": {
+    "eyebrow": "How it works",
+    "title": "Four simple steps from manuscript to a book you can hold",
+    "steps": [
+      { "title": "Share your story", "text": "Send your manuscript, trim size and any ideas for your characters. I reply with a clear quote and timeline." },
+      { "title": "Meet your characters", "text": "I design your main characters first. Nothing moves forward until you love them." },
+      { "title": "Sketch, approve, colour", "text": "You approve rough sketches for every page, then I paint the final illustrations." },
+      { "title": "Cover, layout, publish", "text": "Add the cover and KDP formatting, and you receive print-ready files to upload." }
+    ]
+  },
+  "about": {
+    "eyebrow": "Meet your illustrator",
+    "title": "A children's book illustrator and KDP designer who cares about your story",
+    "photo": "img/blessed-olaoluwakiitan.jpg",
+    "photoLabel": "Hi, I'm Blessed!",
+    "paragraphs": [
+      "I'm Blessed Olaoluwakiitan, the illustrator and designer behind Blessed KDP-Designzz. I help self-publishing authors, parents, teachers and ministries turn their stories into children's books that kids ask to read again.",
+      "My main work is **children's book illustration**: picture books, bedtime stories, faith-based books and early readers, drawn with bright colour and characters full of feeling. Because I also handle **book cover design** and **Amazon KDP formatting**, you work with one person from the first sketch to the final upload, with no hand-offs and no mismatched styles.",
+      "I work with authors worldwide and keep you updated at every stage, so you always know what's done and what's next."
+    ]
+  },
+  "reviews": {
+    "eyebrow": "Client reviews",
+    "title": "Authors love how their books turn out",
+    "featured": {
+      "show": true,
+      "badge": "Verified client review · Fiverr",
+      "score": "5.0",
+      "text": "Blessed went the extra mile to deliver the perfect image for our project. I would highly recommend Blessed's work to anyone. I have hidden the image from this review, but only because it is specific to an active project, but I guarantee it is excellent. Thank you.",
+      "ratings": [
+        { "label": "Seller communication", "score": "5" },
+        { "label": "Quality of delivery", "score": "5" },
+        { "label": "Value of delivery", "score": "5" }
+      ]
+    },
+    "items": [
+      { "name": "Priya Menon", "role": "Children's book author", "text": "The illustrations were breathtaking. My daughter cried when she saw the final book. Truly a magical experience.", "stars": "5", "color": "#7cc4cf" },
+      { "name": "Amelia Rhodes", "role": "Author, The Silent Cartographer", "text": "Blessed KDP Expert turned three years of scattered notes into a book I'm genuinely proud of. The personal attention is a game-changer.", "stars": "5", "color": "#8aa8e8" },
+      { "name": "David Okafor", "role": "Author, Northern Compass", "text": "My book went live on Amazon exactly on schedule. Working with Blessed directly made everything faster and clearer.", "stars": "5", "color": "#c98cc7" }
+    ],
+    "button": "Start my book"
+  },
+  "packages": {
+    "eyebrow": "Packages",
+    "title": "Choose how much help you need",
+    "text": "Every book is different, so prices follow your page count and art style. Pick a package and get an exact quote within a day.",
+    "items": [
+      { "name": "Illustration", "price": "", "for": "For authors who already have a cover and formatter.", "features": ["Character design sheet", "Sketches for your approval", "Full-colour page illustrations", "High-resolution print files"], "highlight": false, "badge": "", "button": "Get a quote" },
+      { "name": "Illustrated Book + Cover", "price": "", "for": "Your story and its cover, in one matching style.", "features": ["Everything in Illustration", "Front, spine and back cover", "Cover sized to your page count", "Amazon thumbnail check"], "highlight": true, "badge": "Most chosen", "button": "Get a quote" },
+      { "name": "Complete KDP Book", "price": "", "for": "Hand me the manuscript, get back a book ready to upload.", "features": ["Everything in Book + Cover", "Interior formatting and text layout", "Paperback PDF and Kindle ePub", "Help with your KDP upload"], "highlight": false, "badge": "", "button": "Get a quote" }
+    ],
+    "noteText": "Only need a cover or formatting?",
+    "noteLink": "Ask for a single-service quote"
+  },
+  "promises": {
+    "title": "Work with me worry-free",
+    "items": [
+      { "icon": "✎", "title": "Revisions included", "text": "You approve sketches before colour, so changes are easy and nothing is final until you're happy." },
+      { "icon": "©", "title": "You own your book", "text": "Once the project is paid, the illustrations and files are yours to publish and sell." },
+      { "icon": "✓", "title": "KDP-ready files", "text": "Files are set up to KDP and IngramSpark specs. If a file I made is rejected, I fix it." },
+      { "icon": "✉", "title": "Clear communication", "text": "Regular updates on WhatsApp or email, and a timeline agreed before we start." }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Questions",
+    "title": "Children's book illustration FAQ",
+    "items": [
+      { "question": "How much does it cost to illustrate a children's book?", "answer": "It depends on how many pages you have, how detailed each scene is and whether you need a cover and formatting too. Send your manuscript and page count and you'll get an exact quote, usually within 24 hours." },
+      { "question": "How long does children's book illustration take?", "answer": "Most picture books take a few weeks, depending on page count and how quickly sketches are approved. You'll get a clear timeline before any work starts." },
+      { "question": "Will my character look the same on every page?", "answer": "Yes. I start with a character design sheet showing your hero from different angles and with different expressions, and use it for every page." },
+      { "question": "Can you design the cover and format the book for Amazon KDP too?", "answer": "Yes. Cover design and KDP formatting are offered as add-ons, so your illustrations, cover and interior all match and are ready to upload." },
+      { "question": "What trim sizes do you work with?", "answer": "Any size KDP and IngramSpark support, including popular picture book sizes like 8.5 × 8.5 in and 8.5 × 11 in. Not sure which to pick? I'll recommend one for your story." },
+      { "question": "Do I own the rights to the illustrations?", "answer": "Yes. After final payment, you can publish, print and sell your book with the illustrations." },
+      { "question": "Can I see sketches before the final illustrations?", "answer": "Always. You approve rough sketches for every page before I move to final colour." },
+      { "question": "How do we work together if I live in another country?", "answer": "Everything happens online. We talk on WhatsApp or email, and you can also hire me through Upwork if you prefer to pay on a platform." }
+    ]
+  },
+  "quote": {
+    "eyebrow": "Let's make your book",
+    "title": "Your story deserves pictures as magical as the words",
+    "text": "Tell me a little about your book. Your message opens in WhatsApp, and I'll reply with a quote and timeline.",
+    "options": ["Illustration", "Illustrated Book + Cover", "Complete KDP Book", "Cover or formatting only", "Not sure yet"],
+    "button": "Send on WhatsApp"
+  },
+  "lastCall": {
+    "eyebrow": "Let's get started",
+    "title": "Ready to see your story come to life on every page?",
+    "text": "Send me your manuscript today and get a free quote and timeline, with no commitment.",
+    "buttonMain": "Chat on WhatsApp",
+    "buttonSecond": "Fill in the quote form",
+    "points": ["Free quote within 24 hours", "Sketches approved before colour", "KDP & IngramSpark ready files"]
+  },
+  "footer": {
+    "text": "Children's book illustration, book cover design and Amazon KDP formatting for self-publishing authors worldwide.",
+    "services": ["Children's book illustration", "Book cover design", "KDP book formatting", "Complete KDP package"],
+    "note": "Working with authors worldwide. Replies within 24 hours."
+  }
+}

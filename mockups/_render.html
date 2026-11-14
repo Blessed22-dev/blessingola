@@ -1,0 +1,16 @@
+<!doctype html>
+<html><head><meta charset="utf-8"></head><body>
+<pre id="log">starting</pre>
+<script type="module">
+  const log = m => { document.getElementById('log').textContent += '\n' + m; };
+  window.onerror = (m) => log('ERR ' + m);
+  try {
+    const { renderPage } = await import('../lib/render.mjs');
+    const content = await (await fetch('../content/content.json')).json();
+    let html = renderPage(content, { year: 2026 });
+    html = html.replace('<head>', '<head><base href="../">').replace(/url\('\//g, "url('../");
+    if (location.search.includes('dump')) { log('LEN ' + html.length); document.getElementById('log').textContent += '\n' + html; }
+    else { document.open(); document.write(html); document.close(); }
+  } catch (e) { log('FAIL ' + e.stack); }
+</script>
+</body></html>

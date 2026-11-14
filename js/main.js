@@ -4,9 +4,8 @@
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const lerp = (a, b, t) => a + (b - a) * t;
   const ease = t => t * t * (3 - 2 * t);
-  const WA = "2349067759138";
-
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* =========================================================
      Night sky
@@ -126,61 +125,13 @@
   requestAnimationFrame(renderBook);
 
   /* =========================================================
-     Case-study showcase: 3D ring  <->  sideways glide
+     Case-study filter (cards are built into the page)
      ========================================================= */
-  const CASES = [
-    { slug: "christmas-star", img: "img/books/christmas-star-wrap.jpg", title: "The Little Girl Who Found the Christmas Star", genre: "Children's picture book", cat: "children", did: "Illustration · Cover design", pdf: null },
-    { slug: "soul-sneakers", title: "Soul Sneakers: Passport to Play", genre: "Children's book", cat: "children" },
-    { slug: "my-seven-covenants", title: "My Seven Covenants", genre: "Illustrated faith book", cat: "children" },
-    { slug: "structure-creates-freedom", title: "Structure Creates Freedom", genre: "Juvenile nonfiction", cat: "children",
-      pdf: "https://cmsfvqcphouhwqfxfrhd.supabase.co/storage/v1/object/public/cms-images/portfolio/1794611170529_Structure_Creates_Freedom_Case_Study.pdf" },
-    { slug: "cursed-codex", img: "img/books/cursed-codex-wrap.jpg", title: "The Cursed Codex", genre: "Dark fantasy novel", cat: "fiction", did: "Cover design", pdf: null },
-    { slug: "judge-not", title: "Judge Not", genre: "Christian nonfiction", cat: "faith" },
-    { slug: "foundations", title: "Foundations", genre: "Christian living", cat: "faith" },
-    { slug: "gen-b-generation-blessed", title: "Gen B: Generation Blessed", genre: "Memoir-style story", cat: "nonfiction" },
-    { slug: "come-forth", title: "Come Forth", genre: "Epic fantasy fiction", cat: "fiction" },
-    { slug: "own-your-shit-workbook", title: "Own Your Sh!t Workbook", genre: "Therapy workbook", cat: "workbook" },
-    { slug: "from-anxious-to-confident", title: "From Anxious to Confident", genre: "Self-help workbook", cat: "workbook" },
-    { slug: "gig-search-hacks", title: "Gig Search Hacks Workbook", genre: "Workbook", cat: "workbook" },
-    { slug: "senior-living-made-simple", title: "Senior Living Made SIMPLE Workbook", genre: "Guided workbook", cat: "workbook" },
-    { slug: "the-relationship-detox", title: "The Relationship Detox", genre: "Healing workbook", cat: "workbook" },
-    { slug: "moving-to-spain", title: "Moving to Spain With Children", genre: "Relocation guide", cat: "nonfiction" },
-    { slug: "therapy-changed", title: "Therapy Changed My Suicidal Thoughts to Self-Love!", genre: "Memoir", cat: "nonfiction" },
-    { slug: "from-flagged-to-restored", title: "From Flagged to Restored", genre: "Nonfiction / KDP", cat: "nonfiction" },
-    { slug: "stronger-at-the-core", title: "Stronger at the Core", genre: "Leadership training", cat: "nonfiction" },
-    { slug: "gotta-get-it-out", title: "Gotta Get It Out", genre: "Poetry", cat: "fiction" },
-    { slug: "left-on-read", title: "Left on Read", genre: "Novel", cat: "fiction",
-      pdf: "https://cmsfvqcphouhwqfxfrhd.supabase.co/storage/v1/object/public/cms-images/portfolio/1793801440429_Left_on_Read_Case_Study.pdf" }
-  ].map(c => ({
-    ...c,
-    img: c.img || `img/cases/${c.slug}.jpg`,
-    did: c.did || "Book design case study",
-    pdf: c.pdf === undefined ? `https://seller.olamilekanwaliu.com/samples/${c.slug}-case-study.pdf` : c.pdf
-  }));
-
   const grid = document.getElementById("caseGrid");
-  const esc = s => s.replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
-  CASES.forEach(c => {
-    const card = document.createElement("article");
-    card.className = "case glass";
-    card.dataset.cat = c.cat;
-    const link = c.pdf
-      ? `<a class="case-link" href="${c.pdf}" target="_blank" rel="noopener">View PDF <span aria-hidden="true">→</span></a>`
-      : `<a class="case-link" href="#quote">Start a book like this <span aria-hidden="true">→</span></a>`;
-    card.innerHTML = `
-      <div class="case-img"><img src="${c.img}" alt="${esc(c.title)}, ${esc(c.genre)}" loading="lazy" width="1000" height="600"></div>
-      <div class="case-body">
-        <p class="case-kicker">Case study</p>
-        <p class="case-genre">${esc(c.genre)}</p>
-        <h3>${esc(c.title)}</h3>
-        ${link}
-      </div>`;
-    grid.appendChild(card);
-  });
   document.querySelectorAll(".filter").forEach(btn => btn.addEventListener("click", () => {
     document.querySelectorAll(".filter").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
     const f = btn.dataset.filter;
-    grid.querySelectorAll(".case").forEach(card => { card.hidden = !(f === "all" || card.dataset.cat === f); });
+    if (grid) grid.querySelectorAll(".case").forEach(card => { card.hidden = !(f === "all" || card.dataset.cat === f); });
   }));
 
   /* =========================================================
@@ -191,14 +142,16 @@
     [...sel.options].forEach(o => { if (o.text === a.dataset.pkg) sel.value = o.value; });
   }));
   const form = document.getElementById("quoteForm");
-  form.addEventListener("submit", e => {
+  const WA = (form && form.dataset.wa) || "";
+  const greet = (form && form.dataset.greeting) || "there";
+  if (form) form.addEventListener("submit", e => {
     e.preventDefault();
     const v = id => document.getElementById(id).value.trim();
     const err = document.getElementById("qError");
     if (!v("qName") || !v("qStory")) { err.hidden = false; return; }
     err.hidden = true;
     const msg = [
-      `Hi Blessed, I'm ${v("qName")}.`,
+      `Hi ${greet}, I'm ${v("qName")}.`,
       `I'd like a quote for: ${v("qService")}.`,
       v("qPages") && `Pages: ${v("qPages")}`,
       v("qSize") && `Trim size: ${v("qSize")}`,

@@ -6,6 +6,7 @@
   const q = new URLSearchParams(location.search);
   const f = document.getElementById('f');
   f.width = q.get('w') || 1440; f.height = q.get('h') || 900;
+  if (q.get('src')) f.src = q.get('src');
   f.addEventListener('load', () => {
     const w = f.contentWindow, d = f.contentDocument;
     d.documentElement.style.scrollBehavior = 'auto';

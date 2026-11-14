@@ -1,0 +1,79 @@
+HOW TO SWITCH ON YOUR WEBSITE ADMIN
+===================================
+
+Your admin page will be at:   https://YOUR-SITE.vercel.app/admin/
+
+Every change you save there is stored in your GitHub project, and Vercel
+rebuilds the live site automatically (about 1 minute).
+
+
+STEP 1 - Upload the new files to GitHub
+---------------------------------------
+On your GitHub project page: Add file -> Upload files.
+Drag these in from the WEBSITE folder (folders as whole folders):
+
+  admin/          (folder)
+  api/            (folder)
+  content/        (folder)
+  lib/            (folder)
+  css/            (folder - updated)
+  js/             (folder - updated)
+  build.mjs
+  package.json
+  vercel.json
+  .gitignore
+  ADMIN-SETUP.txt (optional)
+
+Do NOT upload: assets/, mockups/
+Click "Commit changes".
+
+The old index.html in GitHub is no longer used (the page is now built from
+content/content.json). You can leave it or delete it.
+
+
+STEP 2 - Make a GitHub key so the admin can save
+------------------------------------------------
+1. github.com -> your profile picture -> Settings
+2. Developer settings (bottom of the left menu) -> Personal access tokens
+   -> Fine-grained tokens -> Generate new token
+3. Token name: website admin
+   Expiration: choose the longest option (you'll renew it when it expires)
+   Repository access: Only select repositories -> blessed-kdp-designzz
+   Permissions -> Repository permissions -> Contents: Read and write
+4. Generate token and COPY it (it is shown only once).
+   Keep it private. Never paste it anywhere except Vercel.
+
+
+STEP 3 - Add the settings in Vercel
+-----------------------------------
+vercel.com -> your project -> Settings -> Environment Variables.
+Add each of these (Name = Value), for all environments:
+
+  ADMIN_USERNAME   the username you want for logging in
+  ADMIN_PASSWORD   a strong password (12+ characters)
+  ADMIN_SECRET     any long random text, 40+ characters (you never type it again)
+  GITHUB_TOKEN     the key from Step 2
+  GITHUB_REPO      your-github-username/blessed-kdp-designzz
+  GITHUB_BRANCH    main
+
+
+STEP 4 - Redeploy
+-----------------
+Vercel -> Deployments -> the newest one -> "..." menu -> Redeploy.
+Wait until it says Ready, then open /admin/ on your site and log in.
+
+
+USING THE ADMIN
+---------------
+- Pick a section on the left, edit on the right, and watch the live preview.
+- "+ Add ..." buttons add new items (case studies, reviews, FAQs, packages...).
+- Arrow buttons reorder, the copy button duplicates, the X deletes
+  (click X twice to confirm).
+- "Upload picture" / "Upload PDF" store files in your GitHub project.
+- Nothing goes live until you press "Save & publish".
+- "Undo changes" throws away everything since your last save.
+- If you close the page without saving, the admin offers to restore your
+  changes next time (same computer and browser).
+
+To change your password: change ADMIN_PASSWORD in Vercel and redeploy.
+To log everyone out everywhere: change ADMIN_SECRET in Vercel and redeploy.

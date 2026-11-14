@@ -158,182 +158,30 @@
     pdf: c.pdf === undefined ? `https://seller.olamilekanwaliu.com/samples/${c.slug}-case-study.pdf` : c.pdf
   }));
 
-  const stage = document.getElementById("showStage");
-  const ringTilt = document.querySelector(".ring-tilt");
-  const ring = document.getElementById("ring");
-  const pGenre = document.getElementById("pGenre"), pTitle = document.getElementById("pTitle"), pDid = document.getElementById("pDid"), pPdf = document.getElementById("pPdf");
-  const ringBtn = document.getElementById("ringBtn");
-
-  const cards = CASES.map((c, i) => {
-    const el = document.createElement("button");
-    el.type = "button";
-    el.className = "card";
-    el.setAttribute("aria-label", `${c.title}, ${c.genre}`);
-    el.innerHTML = `<div class="card-f"></div><div class="card-b"><small>${c.genre}</small><strong>${c.title}</strong><span>★</span></div>`;
-    el.querySelector(".card-f").style.backgroundImage = `url("${c.img}")`;
-    ring.appendChild(el);
-    const st = { el, data: c, x: 0, z: -600, ry: 0, s: .6, o: 0, visible: true, vi: i };
-    el.addEventListener("click", () => { if (!dragMoved) focusCard(st); });
-    return st;
+  const grid = document.getElementById("caseGrid");
+  const esc = s => s.replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+  CASES.forEach(c => {
+    const card = document.createElement("article");
+    card.className = "case glass";
+    card.dataset.cat = c.cat;
+    const link = c.pdf
+      ? `<a class="case-link" href="${c.pdf}" target="_blank" rel="noopener">View PDF <span aria-hidden="true">→</span></a>`
+      : `<a class="case-link" href="#quote">Start a book like this <span aria-hidden="true">→</span></a>`;
+    card.innerHTML = `
+      <div class="case-img"><img src="${c.img}" alt="${esc(c.title)}, ${esc(c.genre)}" loading="lazy" width="1000" height="600"></div>
+      <div class="case-body">
+        <p class="case-kicker">Case study</p>
+        <p class="case-genre">${esc(c.genre)}</p>
+        <h3>${esc(c.title)}</h3>
+        ${link}
+      </div>`;
+    grid.appendChild(card);
   });
-
-  let mode = "ring";        // "ring" | "glide"
-  let ringAngle = 0;        // degrees
-  let active = 0;           // index into visible list
-  let spin = 0;             // extra rotation for the centred book in glide mode
-  let spinStart = 0;
-  let tilt = -9;
-  let dragging = null, dragMoved = false;
-  let visibleList = cards.slice();
-
-  function cardSize() { return cards[0].el.offsetWidth || 330; }
-
-  function setPanel(c) {
-    pGenre.textContent = c.genre;
-    pTitle.textContent = c.title;
-    pDid.textContent = c.did;
-    if (c.pdf) { pPdf.hidden = false; pPdf.href = c.pdf; } else { pPdf.hidden = true; }
-  }
-
-  const norm = a => ((a % 360) + 540) % 360 - 180;
-  let spinFrom = 0;
-  function startSpin() {
-    spinStart = performance.now();
-    const st = visibleList[active];
-    if (st) { st.ry = norm(st.ry); spinFrom = st.ry; }
-  }
-
-  function focusCard(st) {
-    const i = visibleList.indexOf(st);
-    if (i < 0) return;
-    if (mode === "glide" && i === active) return;
-    active = i; mode = "glide"; stage.dataset.mode = "glide";
-    setPanel(st.data); startSpin();
-  }
-  function step(d) {
-    const n = visibleList.length;
-    if (mode === "ring") { active = frontIndex(); mode = "glide"; stage.dataset.mode = "glide"; }
-    active = (active + d + n) % n;
-    setPanel(visibleList[active].data); startSpin();
-  }
-  document.getElementById("prevBtn").addEventListener("click", () => step(-1));
-  document.getElementById("nextBtn").addEventListener("click", () => step(1));
-  ringBtn.addEventListener("click", () => {
-    mode = "ring"; stage.dataset.mode = "ring";
-    const n = visibleList.length;
-    ringAngle = -active * (360 / n);
-  });
-
-  function frontIndex() {
-    const n = visibleList.length, stepA = 360 / n;
-    let best = 0, bestD = 999;
-    visibleList.forEach((st, i) => {
-      const a = ((i * stepA + ringAngle) % 360 + 540) % 360 - 180;
-      if (Math.abs(a) < bestD) { bestD = Math.abs(a); best = i; }
-    });
-    return best;
-  }
-
-  // filters
   document.querySelectorAll(".filter").forEach(btn => btn.addEventListener("click", () => {
     document.querySelectorAll(".filter").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
     const f = btn.dataset.filter;
-    cards.forEach(st => { st.visible = f === "all" || st.data.cat === f; st.el.tabIndex = st.visible ? 0 : -1; st.el.toggleAttribute("hidden-card", !st.visible); });
-    visibleList = cards.filter(s => s.visible);
-    active = 0; ringAngle = 0;
-    setPanel(visibleList[0].data);
-    if (mode === "glide") startSpin();
+    grid.querySelectorAll(".case").forEach(card => { card.hidden = !(f === "all" || card.dataset.cat === f); });
   }));
-
-  // drag / swipe
-  stage.addEventListener("pointerdown", e => {
-    if (e.target.closest(".show-arrow")) return;
-    dragging = { x: e.clientX, a: ringAngle, act: active };
-    dragMoved = false;
-  });
-  addEventListener("pointermove", e => {
-    if (!dragging) return;
-    const dx = e.clientX - dragging.x;
-    if (Math.abs(dx) > 6) dragMoved = true;
-    if (mode === "ring") ringAngle = dragging.a + dx * .18;
-    else {
-      const stepPx = cardSize() * .55;
-      const n = visibleList.length;
-      const d = Math.round(-dx / stepPx);
-      const want = ((dragging.act + d) % n + n) % n;
-      if (want !== active) { active = want; setPanel(visibleList[active].data); startSpin(); }
-    }
-  });
-  addEventListener("pointerup", () => { dragging = null; setTimeout(() => { dragMoved = false; }, 0); });
-
-  // pause auto-rotate while hovering the ring
-  let hover = false;
-  stage.addEventListener("pointerenter", () => { hover = true; });
-  stage.addEventListener("pointerleave", () => { hover = false; });
-
-  let inView = true;
-  new IntersectionObserver(es => { inView = es[0].isIntersecting; }).observe(stage);
-
-  function renderShow(now) {
-    requestAnimationFrame(renderShow);
-    if (!inView) return;
-    const n = visibleList.length;
-    const cw = cardSize();
-    const k = reduce ? 1 : .09;
-
-    if (mode === "ring") {
-      if (!dragging && !hover && !reduce) ringAngle -= .06;
-      const stepA = 360 / n;
-      const r = Math.max(cw * 1.1, ((cw + 26) / 2) / Math.tan(Math.PI / Math.max(n, 3)));
-      visibleList.forEach((st, i) => {
-        const a = (i * stepA + ringAngle) * Math.PI / 180;
-        st.tx = Math.sin(a) * r;
-        st.tz = Math.cos(a) * r - r;
-        st.try = i * stepA + ringAngle;
-        st.ts = 1; st.to = 1; st.dim = clamp((1 - Math.cos(a)) * .35, 0, .6);
-      });
-      const fi = frontIndex();
-      if (visibleList[fi] && pTitle.textContent !== visibleList[fi].data.title) setPanel(visibleList[fi].data);
-      tilt = lerp(tilt, -9, k);
-    } else {
-      const sp = cw * .78;
-      const elapsed = (now - spinStart) / 1100;
-      spin = elapsed < 1
-        ? lerp(spinFrom, 360, ease(clamp(elapsed)))
-        : 360 + Math.sin((now - spinStart - 1100) / 900) * 14;
-      visibleList.forEach((st, i) => {
-        let d = i - active;
-        if (d > n / 2) d -= n;
-        if (d < -n / 2) d += n;
-        const ad = Math.abs(d);
-        st.tx = d * sp + Math.sign(d) * cw * .32;
-        st.tz = d === 0 ? 140 : -ad * 120;
-        st.try = d === 0 ? spin : d * -14;
-        st.ts = d === 0 ? 1.18 : 1 - Math.min(ad, 4) * .06;
-        st.to = ad > 3 ? 0 : 1;
-        st.dim = d === 0 ? 0 : Math.min(.25 + ad * .12, .7);
-      });
-      tilt = lerp(tilt, 0, k);
-    }
-    cards.forEach(st => {
-      if (!st.visible) { st.to = 0; st.ts = .4; st.tz = (st.tz ?? -800) - 10; }
-      st.x = lerp(st.x, st.tx ?? 0, k);
-      st.z = lerp(st.z, st.tz ?? -600, k);
-      // rotate by shortest path
-      const tr = st.try ?? 0;
-      if (mode === "glide" && st === visibleList[active]) st.ry = tr;
-      else st.ry += norm(tr - st.ry) * k;
-      st.s = lerp(st.s, st.ts ?? 1, k);
-      st.o = lerp(st.o, st.to ?? 1, k);
-      st.el.style.transform = `translate3d(${st.x.toFixed(1)}px, 0, ${st.z.toFixed(1)}px) rotateY(${st.ry.toFixed(2)}deg) scale(${st.s.toFixed(3)})`;
-      st.el.style.opacity = st.o.toFixed(3);
-      st.el.style.setProperty("--dim", (st.dim ?? 0).toFixed(2));
-      st.el.style.visibility = st.o < .02 ? "hidden" : "visible";
-    });
-    ringTilt.style.transform = `rotateX(${tilt.toFixed(2)}deg)`;
-  }
-  setPanel(CASES[0]);
-  requestAnimationFrame(renderShow);
 
   /* =========================================================
      Quote form -> WhatsApp

@@ -8,14 +8,14 @@ export const SECTIONS = [
     fields: [
       { key: "eyebrow", label: "Small line above the headline", type: "text" },
       { key: "titleStart", label: "Headline", type: "text" },
-      { key: "titleHighlight", label: "Highlighted end of headline (purple)", type: "text" },
+      { key: "titleHighlight", label: "Highlighted end of headline (coral italic)", type: "text" },
       { key: "text", label: "Intro paragraph", type: "textarea" },
       { key: "buttonMain", label: "Main button text", type: "text" },
       { key: "buttonSecond", label: "Second button text", type: "text" },
-      { key: "proof", label: "Proof points under the buttons", type: "items", addLabel: "Add proof point", title: i => `${i.big || ""} ${i.small || ""}`,
+      { key: "proof", label: "Stat chips under the buttons (keep to 3 so they fit on one line)", type: "items", addLabel: "Add stat chip", title: i => `${i.big || ""} ${i.small || ""}`,
         newItem: () => ({ big: "", small: "" }),
         fields: [{ key: "big", label: "Big text", type: "text" }, { key: "small", label: "Small text", type: "text" }] },
-      { key: "scrollHint", label: "Scroll hint text", type: "text" }
+      { key: "note", label: "Handwritten note next to the book", type: "text" }
     ]
   },
   {
@@ -43,7 +43,7 @@ export const SECTIONS = [
       { key: "text", label: "Intro", type: "textarea" },
       { key: "items", label: "Problems", type: "items", addLabel: "Add problem", title: i => i.title,
         newItem: () => ({ title: "", text: "" }),
-        fields: [{ key: "title", label: "Problem (bold)", type: "text" }, { key: "text", label: "Your answer", type: "textarea" }] }
+        fields: [{ key: "title", label: "The problem", type: "text" }, { key: "text", label: "How I fix it", type: "textarea" }] }
     ]
   },
   {
@@ -80,7 +80,9 @@ export const SECTIONS = [
           { key: "link", label: "Case study PDF or link (leave empty to link to the quote form)", type: "file" },
           { key: "linkLabel", label: "Link text", type: "text" }
         ] },
-      { key: "categories", label: "Filter buttons", type: "items", addLabel: "Add filter", title: i => i.label,
+      { key: "showFirst", label: "How many books to show before \"Show more\"", type: "text" },
+      { key: "moreButton", label: "\"Show more\" button text", type: "text" },
+      { key: "categories", label: "Book groups (shown as a small label on each book)", type: "items", addLabel: "Add group", title: i => i.label,
         newItem: () => ({ id: "", label: "" }),
         fields: [{ key: "label", label: "Button text", type: "text" }, { key: "id", label: "Short code (letters only, used to match case studies)", type: "text" }] },
       { key: "button", label: "Button under the grid", type: "text" }
@@ -102,8 +104,9 @@ export const SECTIONS = [
       { key: "eyebrow", label: "Small heading", type: "text" },
       { key: "title", label: "Title", type: "text" },
       { key: "photo", label: "Your photo (square works best)", type: "image" },
-      { key: "photoLabel", label: "Label on the photo", type: "text" },
-      { key: "paragraphs", label: "Paragraphs (put **two stars** around words to make them bold)", type: "strings", multiline: true, addLabel: "Add paragraph" }
+      { key: "photoLabel", label: "Handwritten line under the photo", type: "text" },
+      { key: "paragraphs", label: "Paragraphs (put **two stars** around words to make them bold)", type: "strings", multiline: true, addLabel: "Add paragraph" },
+      { key: "facts", label: "Quick-fact chips", type: "strings", addLabel: "Add fact" }
     ]
   },
   {
@@ -120,7 +123,8 @@ export const SECTIONS = [
           newItem: () => ({ label: "", score: "5" }),
           fields: [{ key: "label", label: "Label", type: "text" }, { key: "score", label: "Score out of 5", type: "text" }] }
       ] },
-      { key: "items", label: "Sliding reviews", type: "items", addLabel: "Add review", title: i => i.name,
+      { key: "fiverrLabel", label: "\"Read all reviews\" button text (shows when your Fiverr link is set in Contact)", type: "text" },
+      { key: "items", label: "More real reviews (cards under the featured review)", type: "items", addLabel: "Add review", title: i => i.name,
         newItem: () => ({ name: "", role: "", text: "", stars: "5", color: "#9b74ee" }),
         fields: [
           { key: "name", label: "Client name", type: "text" },
@@ -213,7 +217,8 @@ export const SECTIONS = [
       { key: "instagram", label: "Instagram link", type: "url" },
       { key: "threads", label: "Threads link", type: "url" },
       { key: "linkedin", label: "LinkedIn link", type: "url" },
-      { key: "tiktok", label: "TikTok link", type: "url" }
+      { key: "tiktok", label: "TikTok link", type: "url" },
+      { key: "fiverr", label: "Fiverr profile link (adds \"Read all reviews on Fiverr\")", type: "url" }
     ]
   },
   {
@@ -223,8 +228,7 @@ export const SECTIONS = [
       { key: "second", label: "Brand name, purple part", type: "text" },
       { key: "ownerName", label: "Your full name", type: "text" },
       { key: "ownerTitle", label: "Your job title", type: "text" },
-      { key: "tagline", label: "Tagline on the opening animation", type: "text" }
-    ]
+      { key: "tagline", label: "Tagline on the opening animation", type: "text" }    ]
   },
   {
     key: "nav", label: "Top menu", icon: "≡",
